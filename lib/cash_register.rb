@@ -23,4 +23,8 @@ class CashRegister
     self.total == 0 ? "There is no discount to apply." : "After the discount, the total comes to $#{self.total = self.total * 8 / 10 }."
   end
   
+  def void_last_transaction()
+    @total -= @last_transaction_amount
+  end
+  
 end 

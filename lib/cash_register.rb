@@ -35,12 +35,11 @@ class CashRegister
       for qty in 1..item_info[:quantity] 
         item_names << item_info[:name]
       end 
+       self.total = self.total - self.last_transaction
     end 
     item_names
   end 
   
-   def void_last_transaction
-    self.total = self.total - self.last_transaction
-  end
+   
 
 end

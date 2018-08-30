@@ -8,7 +8,16 @@ class CashRegister
     @cart = []
   end
   
-  def add_item(title, price, quantity = 1)
-    
-end 
+  def add_item(item, price, quantity = 1)
+    item_info = {}
+    item_info[:name] = item
+    item_info[:price] = price
+    item_info[:quantity] = quantity
+
+    @cart << item_info
+
+    @total += price * quantity
+
+  end
   
+end 

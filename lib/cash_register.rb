@@ -23,7 +23,7 @@ class CashRegister
     self.total == 0 ? "There is no discount to apply." : "After the discount, the total comes to $#{self.total = self.total * 8 / 10 }."
   end
   
-  def items 
-    items = []
+  def void_last_transaction
+    self.total = self.total - self.last_transaction
   end
 end 

@@ -23,7 +23,14 @@ class CashRegister
     self.total == 0 ? "There is no discount to apply." : "After the discount, the total comes to $#{self.total = self.total * 8 / 10 }."
   end
   
-  def void_last_transaction
-    self.total = self.total - self.last_transaction
-  end
+ def items
+    item_names = []
+    @cart.each do | item_info |
+      #test expects product name * quantity...
+      for qty in 1..item_info[:quantity] 
+        item_names << item_info[:name]
+      end 
+    end 
+    item_names
+  end 
 end 

@@ -13,6 +13,6 @@ class CashRegister
     item_info[:name] = item
     item_info[:price] = price
     item_info[:quantity] = quantity
-end 
+  end 
 end 
   

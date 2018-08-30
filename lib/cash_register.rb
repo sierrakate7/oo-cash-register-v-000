@@ -7,7 +7,7 @@ class CashRegister
     @discount = discount
     @cart = []
   end
-  
+
   def add_item(item, price, quantity = 1)
     item_info = {}
     item_info[:name] = item
@@ -15,18 +15,28 @@ class CashRegister
     item_info[:quantity] = quantity
 
     @cart << item_info
+
     @total += price * quantity
-    
+
   end
-  
-   def apply_discount
-    self.total == 0 ? "There is no discount to apply." : "After the discount, the total comes to $#{self.total = self.total * 8 / 10 }."
-  end
-  
-  def void_last_transaction
-    self.total -= self.last_transaction[1] * self.last_transaction[2]
-    self.last_transaction[2].times do
-      self.items.delete_at(self.items.index(self.last_transaction[0]) || self.items.count)
+
+  def apply_discount
+    if @discount == 0
+      return "There is no discount to apply."
     end
-  end
-end 
+    @total -= @total * @discount / 100
+    return "After the discount, the total comes to $#{@total}."
+  end 
+
+  def items
+    item_names = []
+    @cart.each do | item_info |
+      #test expects product name * quantity...
+      for qty in 1..item_info[:quantity] 
+        item_names << item_info[:name]
+      end 
+    end 
+    item_names
+  end 
+
+end
